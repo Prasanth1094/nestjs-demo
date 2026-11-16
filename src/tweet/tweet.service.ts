@@ -10,16 +10,16 @@ export class TweetService {
     ]
 
     getTweets(userId: number){
-        const user = this.usersService.getUserById(userId);
-        if (!user) {
-            throw new Error('User not found');
-        }
-        const userTweets = this.tweets.filter(tweet => tweet.userId === userId);
-        const response= userTweets.map((tweet) => ({
-            text: tweet.text,
-            date: tweet.date,
-            name:user.name
-        }));
-        return response;
+        // const user = this.usersService.getUserById(userId);
+        // if (!user) {
+        //     throw new Error('User not found');
+        // }
+        // const userTweets = this.tweets.filter(tweet => tweet.userId === userId);
+        // const response= userTweets.map((tweet) => ({
+        //     text: tweet.text,
+        //     date: tweet.date,
+        //     name:user.name
+        // }));
+        // return response;
     }
 }

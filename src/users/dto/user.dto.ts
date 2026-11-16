@@ -6,19 +6,27 @@ import {
   IsNumber,
   IsOptional,
   IsString,
+  Max,
+  MaxLength,
   MinLength,
 } from 'class-validator';
 
 export class CreateUserDto {
-  @IsNumber()
-  id: number;
+ @IsString()
+  @IsNotEmpty()
+  @MinLength(3, { message: 'First Name must be at least 3 characters long' })
+  @MaxLength(100, { message: 'First Name must be at most 100 characters long' })
+  firstName: string;
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(3, { message: 'Name must be at least 3 characters long' })
-  name: string;
+  @MinLength(3, { message: 'Last Name must be at least 3 characters long' })
+  @MaxLength(100, { message: 'Last Name must be at most 100 characters long' })
+  lastName: string;
+
 
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @IsNumber()
@@ -26,6 +34,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
+  @MaxLength(10, { message: 'Gender must be at most 10 characters long' })
   gender: string;
 
   @IsString()
